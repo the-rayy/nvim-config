@@ -20,23 +20,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local plugins = {
-  {
-    "olivercederborg/poimandres.nvim"
-  },
-  {
-    "nvim-telescope/telescope.nvim",
-    tag = "0.1.8",
-    dependencies = { { "nvim-lua/plenary.nvim"} }
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate"
-  }
-}
-local opts = {}
-
-require("lazy").setup(plugins, opts)
+require("lazy").setup("plugins")
 require("poimandres").setup({
   din_nc_background = true,
   disable_background = true
@@ -53,3 +37,5 @@ treesitter.setup({
 })
 
 vim.cmd.colorscheme "poimandres"
+
+vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>', {})
