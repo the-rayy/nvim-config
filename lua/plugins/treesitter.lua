@@ -4,10 +4,9 @@ return {
   config = function()
     local treesitter = require("nvim-treesitter.configs")
     treesitter.setup({
-      ensure_installed = {"lua", "rust"},
+      auto_install = true,
       highlight = { enable = true },
       indent = { enable = true }
     })
   end
 }
- 
