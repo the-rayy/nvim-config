@@ -12,7 +12,7 @@ return {
     },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "rust_analyzer" }
+        ensure_installed = { "lua_ls", "rust_analyzer", "gopls" }
       })
     end
   },
@@ -28,11 +28,16 @@ return {
       lspconfig.rust_analyzer.setup({
         capabilities = capabilities
       })
+      lspconfig.gopls.setup({
+        capabilities = capabilities
+      })
 
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-      vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, {})
-      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
+      vim.keymap.set('n', '<leader>ch', vim.lsp.buf.hover, { desc = 'Show hover information' })
+      vim.keymap.set('n', '<leader>cn', vim.lsp.buf.rename, { desc = 'Rename symbol' })
+      vim.keymap.set('n', '<leader>cd', vim.lsp.buf.definition, { desc = 'Go to definition' })
+      vim.keymap.set('n', '<leader>cr', vim.lsp.buf.references, { desc = 'Show references' })
+      vim.keymap.set('n', '<leader>ci', vim.lsp.buf.implementation, { desc = 'Go to implementations' })
+      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Show code actions' })
     end
   }
 }
