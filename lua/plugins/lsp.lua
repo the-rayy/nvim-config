@@ -32,6 +32,7 @@ return {
         capabilities = capabilities
       })
 
+      vim.keymap.set('n', '<leader>cf', vim.lsp.buf.format, { desc = 'Format' })
       vim.keymap.set('n', '<leader>ch', vim.lsp.buf.hover, { desc = 'Show hover information' })
       vim.keymap.set('n', '<leader>cn', vim.lsp.buf.rename, { desc = 'Rename symbol' })
       vim.keymap.set('n', '<leader>cd', vim.lsp.buf.definition, { desc = 'Go to definition' })
