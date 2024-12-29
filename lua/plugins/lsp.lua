@@ -26,7 +26,10 @@ return {
         capabilities = capabilities
       })
       lspconfig.rust_analyzer.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
+        cargo = {
+          allFeatures = true
+        }
       })
       lspconfig.gopls.setup({
         capabilities = capabilities
