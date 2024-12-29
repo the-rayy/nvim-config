@@ -16,6 +16,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.opt.scrolloff = 30
 vim.opt.timeoutlen = 300
+vim.opt.conceallevel = 2
 
 vim.cmd("filetype plugin on")
 
