@@ -12,7 +12,7 @@ return {
     },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "rust_analyzer", "gopls", "solargraph" },
+        ensure_installed = { "lua_ls", "rust_analyzer", "gopls", "pyright" },
       })
     end,
   },
@@ -37,8 +37,14 @@ return {
       })
       lspconfig.gopls.setup({
         capabilities = capabilities,
+        settings = {
+          gopls = {
+            buildFlags = { "-tags=protoopaque" },
+            gofumpt = true,
+          }
+        }
       })
-      lspconfig.solargraph.setup({
+      lspconfig.pyright.setup({
         capabilities = capabilities,
       })
 
